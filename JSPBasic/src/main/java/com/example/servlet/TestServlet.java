@@ -19,6 +19,7 @@ public class TestServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		//System.out.println("헬로");
+		//out객체 사용법
 		resp.setContentType("text/html; charset=UTF-8"); //이 형태로 보여줘라, 라고 클라이언트에게 알려줌
 		PrintWriter out = resp.getWriter();
 		out.println("헬로"); //컨텐츠타입
