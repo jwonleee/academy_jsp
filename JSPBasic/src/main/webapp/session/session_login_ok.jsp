@@ -16,18 +16,18 @@
 	
 	//세션 사용
 	
-	request.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8");//post로 받아옴
 	String seid = request.getParameter("id");
 	String sepw = request.getParameter("pw");
 	String senick = request.getParameter("nick");
 	
-	if(seid.equals("dodo123") && sepw.equals("1111")) {
-		session.setAttribute("user_id", seid);
-		session.setAttribute("user_nick", senick);
+	if(seid.equals("dodo123") && sepw.equals("1111")) { //login 성공
+		session.setAttribute("user_id", seid);//세션(이름, 값)
+		session.setAttribute("user_nick", senick); 
 		
-		response.sendRedirect("session_welcome.jsp");
+		response.sendRedirect("session_welcome.jsp");//성공시 welcome으로 이동
 	} else {
-		response.sendRedirect("session_login.jsp");
+		response.sendRedirect("session_login.jsp");//실패시 다시 로그인으로 이동
 	}
 	
 %>
