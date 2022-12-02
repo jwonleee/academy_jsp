@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
 	//쿠키 확인하기
 	//브라우저에 쿠키는 request객체에 자동으로 넘어와서 저장됩니다. (완료되기 전까지는 어디서든 사용가능)
@@ -26,6 +26,6 @@
 	<h3>쿠키 사용하기</h3>
 
 	<a href="cookie_ex01_reset.jsp">쿠키삭제</a>
-	
+
 </body>
 </html>

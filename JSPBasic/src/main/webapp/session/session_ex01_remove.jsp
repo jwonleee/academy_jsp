@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
 	//세션 삭제
 	session.removeAttribute("user_id");
@@ -11,7 +11,7 @@
 	//세션 전부 삭제
 	session.invalidate();
 	
-%>    
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,10 +19,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 	<h3>리무브된 결과</h3>
-	세션값: <%=user_id %><br>
-	세션값: <%=user_name %><br>
+	세션값:
+	<%=user_id %><br> 세션값:
+	<%=user_name %><br>
 
 </body>
 </html>

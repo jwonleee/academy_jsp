@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
 	//쿠기 삭제 - 쿠키는 삭제가 없어서 동일한 이름의 쿠키의 0초로 만들어서 삭제
 	

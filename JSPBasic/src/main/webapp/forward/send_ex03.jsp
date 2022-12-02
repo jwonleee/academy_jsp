@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
 
 	//request 객체의 생명주기는 → 다음 페이지까지만
@@ -15,8 +15,7 @@
 </head>
 <body>
 
-	ID:<%=id %><br>
-	PW:<%=pw %><br>
+	ID:<%=id %><br> PW:<%=pw %><br>
 
 
 </body>

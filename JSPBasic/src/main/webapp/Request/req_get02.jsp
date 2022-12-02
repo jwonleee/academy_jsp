@@ -1,6 +1,6 @@
 <%@page import="java.util.Arrays"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
 	//리퀘스트객체에서 관련정보 얻기
 	StringBuffer url = request.getRequestURL();//전체주소
@@ -23,14 +23,14 @@
 </head>
 <body>
 
-	url: <%=url %><br>
-	uri: <%=uri %><br>
-	컨패스: <%=path %><br>
-	접속한 주소: <%=remoteAddr %><br>
+	url:
+	<%=url %><br> uri:
+	<%=uri %><br> 컨패스:
+	<%=path %><br> 접속한 주소:
+	<%=remoteAddr %><br> 아이디:
+	<%=id %><br> pw:
+	<%=pw %><br> 동의항목:
+	<%=Arrays.toString(agrees) %><br>
 
-	아이디: <%=id %><br>
-	pw: <%=pw %><br>
-	동의항목: <%=Arrays.toString(agrees) %><br>
-	
 </body>
 </html>

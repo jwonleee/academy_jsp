@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
 	/*
 	세션은 서버와 정보를 유지하기 위해 사용하는 내장객체입니다.
@@ -22,7 +22,7 @@
 </head>
 <body>
 
-	<a href ="session_ex01_ok.jsp">세션 확인하기</a>
+	<a href="session_ex01_ok.jsp">세션 확인하기</a>
 
 </body>
 </html>

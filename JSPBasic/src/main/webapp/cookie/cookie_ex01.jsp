@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>    
+	pageEncoding="UTF-8"%>
 <%
 	//쿠키는 서버에서 생성해서 responser에 담아서 클라이언트로 보냅니다.
 	//1. 쿠키 생성문

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
 	//a태그로 넘어오는 값 출력
 	String who = request.getParameter("name");
@@ -13,7 +13,8 @@
 </head>
 <body>
 
-	<%=who %> 선택
-	
+	<%=who %>
+	선택
+
 </body>
 </html>

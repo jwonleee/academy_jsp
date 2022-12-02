@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,16 +16,14 @@
 	화면에 이름, 키, 몸무게 BMI지수를 출력
 	if를 통해 BMI지수가 25이상 과체중, 18 이하라면 저체중, 나머지는 정상으로 출력
 	 --%>
-	 
-	<form action="req_quiz02_ok.jsp" method="post">
-	
-	<h3>BMI 지수 확인</h3>
-	이름: <input type="text" name="name"><br>
-	키: <input type="text" name="height"><br>
-	몸무게: <input type="text" name="weight"><br>
 
-	<input type="submit" value="확인">
-	</form>	 
+	<form action="req_quiz02_ok.jsp" method="post">
+
+		<h3>BMI 지수 확인</h3>
+		이름: <input type="text" name="name"><br> 키: <input
+			type="text" name="height"><br> 몸무게: <input type="text"
+			name="weight"><br> <input type="submit" value="확인">
+	</form>
 
 
 </body>

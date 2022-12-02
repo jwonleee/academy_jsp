@@ -1,27 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	
-	<style>
-		.containter{
-			display: flex;
-			height: 100vh;
-			background-color: lightgrey;
-			justify-content: center;
-			align-items: center;
-		}
-		
-		#wrap {
-			border: 1px solid #777;
-			background-color: #ffffff;
-			padding: 10px;
-			text-align: center;
-		}
-	</style>
+
+<style>
+.containter {
+	display: flex;
+	height: 100vh;
+	background-color: lightgrey;
+	justify-content: center;
+	align-items: center;
+}
+
+#wrap {
+	border: 1px solid #777;
+	background-color: #ffffff;
+	padding: 10px;
+	text-align: center;
+}
+</style>
 
 
 </head>
@@ -41,10 +41,9 @@
 	<div class="containter">
 		<form action="res_ex02_result.jsp" method="post" id="wrap">
 			<h3>로그인 연습</h3>
-			<input type="text" name="id" placeholder="아이디"><br>
-			<input type="password" name="pw" placeholder="비밀번호"><br>
-			
-			<input type="submit" value="로그인">
+			<input type="text" name="id" placeholder="아이디"><br> <input
+				type="password" name="pw" placeholder="비밀번호"><br> <input
+				type="submit" value="로그인">
 		</form>
 	</div>
 

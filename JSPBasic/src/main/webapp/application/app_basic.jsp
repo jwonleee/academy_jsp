@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
 	/*
 	application은 session과 사용방법은 거의 동일하며
@@ -16,7 +16,7 @@
 	
 	application.setAttribute("total", total); //저장
 
-%>    
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,9 +25,8 @@
 </head>
 <body>
 
-	<a href="app_basic_ok.jsp">total값 확인</a>
-	
-	app에 유지되는 total값: <%=total %>
+	<a href="app_basic_ok.jsp">total값 확인</a> app에 유지되는 total값:
+	<%=total %>
 
 </body>
 </html>

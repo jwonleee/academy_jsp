@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
 	int total = (int)application.getAttribute("total");
 
 	//삭제는removeAttr
 
-%>    
-    
-    
+%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,8 @@
 </head>
 <body>
 
-	app에 유지되는 total값: <%=total %>
-	
+	app에 유지되는 total값:
+	<%=total %>
+
 </body>
 </html>

@@ -1,7 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
 /*
 1. Set을 이용해서 처리
@@ -24,7 +24,7 @@ while(true) {
 }
 
 
-%> 
+%>
 
 <!DOCTYPE html>
 <html>
@@ -34,7 +34,8 @@ while(true) {
 </head>
 <body>
 
-	로또번호: <%= set.toString() %>
+	로또번호:
+	<%= set.toString() %>
 
 </body>
 </html>
