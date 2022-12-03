@@ -4,13 +4,12 @@
 	//쿠키 확인하기
 	//브라우저에 쿠키는 request객체에 자동으로 넘어와서 저장됩니다. (완료되기 전까지는 어디서든 사용가능)
 	
-	Cookie[] cookies = request.getCookies();
-	
+	Cookie[] cookies = request.getCookies(); //클라이언트가 서버한테 request로 쿠키 던짐(연결되어있다고 알려주려고)	
 	//쿠키가 없다면 null이기 때문에 에러발생
 	if(cookies != null) {
 		for(Cookie c : cookies) {
-			out.println(c.getName() + "<br>");
-			out.println(c.getValue() + "<br>");
+			out.println(c.getName() + "<br>"); //USER_ID, USER_NAME
+			out.println(c.getValue() + "<br>"); //KKK123, 홍길동
 		}
 	}
 

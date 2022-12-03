@@ -10,6 +10,7 @@
 
 	<!-- action에는 지정된 페이지의 경로 -->
 	<!-- post방식은 form태그가 필요하고 method="post"를 적습니다 -->
+	<!-- 이 페이지는 get 방식 -->
 	<form action="req_get02.jsp">
 
 		아이디:<input type="text" name="id" value="ab123"> <br>

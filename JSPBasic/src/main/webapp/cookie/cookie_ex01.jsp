@@ -11,7 +11,7 @@
 	nameCookie.setMaxAge(30); //30초
 	
 	//3.쿠키를 response에 저장
-	response.addCookie(idCookie);
+	response.addCookie(idCookie); //서버에서 클라이언트에게 쿠키 던짐(클라이언트에 쿠키 저장)
 	response.addCookie(nameCookie);
 
 %>

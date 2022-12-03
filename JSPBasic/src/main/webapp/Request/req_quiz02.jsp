@@ -20,9 +20,11 @@
 	<form action="req_quiz02_ok.jsp" method="post">
 
 		<h3>BMI 지수 확인</h3>
-		이름: <input type="text" name="name"><br> 키: <input
-			type="text" name="height"><br> 몸무게: <input type="text"
-			name="weight"><br> <input type="submit" value="확인">
+		이름: <input type="text" name="name"><br>
+		키: <input type="text" name="height"><br>
+		몸무게: <input type="text" name="weight"><br>
+		<input type="submit" value="확인">
+		
 	</form>
 
 

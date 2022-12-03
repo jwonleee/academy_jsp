@@ -13,9 +13,11 @@
 
 	<form action="session_login_ok.jsp" method="post">
 
-		아이디:<input type="text" name="id"><br> 비밀번호:<input
-			type="password" name="pw"><br> 닉네임:<input type="text"
-			name="nick"><br> <input type="submit" value="로그인">
+		아이디:<input type="text" name="id"><br>
+		비밀번호:<input type="password" name="pw"><br>
+		닉네임:<input type="text" name="nick"><br>
+		<input type="submit" value="로그인">
+		
 	</form>
 
 

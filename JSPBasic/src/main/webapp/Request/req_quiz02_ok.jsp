@@ -31,11 +31,10 @@
 	<h3>
 		IBM 지수 확인<br>
 	</h3>
-	이름:
-	<%=name %><br> 키:
-	<%=height %><br> 몸무게:
-	<%=weight %><br> BMI:
-	<%=bmi %><br>
+	이름: <%=name %><br>
+	키: <%=height %><br>
+	몸무게: <%=weight %><br>
+	BMI: <%=bmi %><br>
 
 	<%-- 출력하기 위해서는 여기에 if문 사용해줘야함 / %로 감싸고, "과체중" 써도 됨 --%>
 	<%if(bmi >= 25) {%>
