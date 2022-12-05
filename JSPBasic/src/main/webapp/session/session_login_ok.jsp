@@ -21,7 +21,7 @@
 	String sepw = request.getParameter("pw");
 	String senick = request.getParameter("nick");
 	
-	if(seid.equals("dodo123") && sepw.equals("1111")) { //login 성공
+	if(seid.equals("aaa123") && sepw.equals("aaa123")) { //login 성공
 		session.setAttribute("user_id", seid);//세션(이름, 값)
 		session.setAttribute("user_nick", senick); 
 		

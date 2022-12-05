@@ -6,7 +6,7 @@
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
 	
-	//
+	//request.setAttribute 강제로 저장한 값 불러온 데이터
 	String data = (String)request.getAttribute("data");
 	
 %>

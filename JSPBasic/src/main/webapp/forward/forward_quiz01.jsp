@@ -16,7 +16,7 @@
 	4. 평균이 60이하라면 실패페이지로 리다이렉트 시키세요
 	--%>
 
-	<form action="res_quiz01_result.jsp" method="post">
+	<form action="forward_quiz01_result.jsp" method="post">
 		이름:<input type="text" name="name"><br> 국어:<input
 			type="number" name="kor"><br> 영어:<input type="number"
 			name="eng"><br> 수학:<input type="number" name="math"><br>
