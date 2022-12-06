@@ -1,0 +1,136 @@
+////////
+1. 
+
+
+사이트에서 공통으로 사용되는 부분 (메뉴, 사이트 하단)들을
+header 와 footer로 구분하고 이들을 따로 jsp파일로 만들어서
+include를 활용하여 코드를 간편화시킨다.
+
+include 사용 예시
+<%@ include file= "include/header.jsp" %> 
+<%@ include file = "include/footer.jsp" %>
+
+///////
+2. 
+
+
+header.jsp 에 포함되어있는 메뉴들은 모두 링크가 걸려있는데
+이를 a태그를 통해서 작성할 수도 있지만 MVC Model2에 부합하도록
+모든 요청이 하나의 서블릿을 통해 전달되고 서블릿에서 요청을 처리하여 그에 걸맞는
+jsp 페이지를 포워딩하도록 만들어야 한다.
+
+
+////////
+3. 
+
+
+servlet 생성
+모든 요청을 받을 수 있는 servlet을 생성해야 한다.
+서블릿은 get과 post로 나뉘지만 이를 구분하지 않고 통합해서 작동될 수 있도록
+doAction() 이라는 메서드를 만들어서 get과 post를 통합시킨다.
+
+doAction은 get과 post 통합이며, post가 들어올 경우를 대비해서
+한글처리를 해주어야 한다. request.setCharacterEncoding("utf-8");
+
+또한 경로가 어떻게 설정되었는지에 따라 Path가 다양하게 들어오므로 이를
+통일시키기 위한 작업이 진행되어야 한다.
+String uri = request.getRequestURI(); //프로젝트명 + 파일경로
+String path = request.getContextPath(); //파일경로
+
+uri는 프로젝트까지 포함되어서 들어오므로 여기서 프로젝트를 제거해 통일시켜야 한다.
+프로젝트를 제거하기 위해서
+ex)
+String uri = request.getRequestURI();
+String path = request.getContextPath();
+String command = uri.substring(path.length());
+
+URI :  /JSPWeb/user/user_login.user
+path : /JSPWeb
+요청경로 : /user/user_login.user
+
+이제 요청경로가 확인되었으니 그 경로에 맞추어 요청사항을 처리하면 된다.
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+4.
+
+
+"/user/user_join.user" 요청사항 처리
+
+
+"/user/user_join.user" 다음과 같이 join(회원가입)의 요청이 들어왔을 경우
+그에 맞는 jsp 페이지를 forward해준다.(MVC Model2에서 
+다른 페이지로 넘어가는 것은 forward를 사용해야한다. 
+Redirect는 MVC Model2 에 위배되는 방식)
+
+request.getRequestDispatcher("user_join.jsp").forward(request,response);
+
+회원가입을 담당하는 user_join.jsp 에서 필요한 값들을 form태그를 통해
+입력받고 이를 다시 input submit 태그를 통해서 값들을 전달해주어야 한다.
+form 태그 action 에 적힌 링크로 값들이 전달되는데 요청이므로 서블릿으로
+전달해야 한다.
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+5.
+
+
+"/user/joinForm.user" 요청사항 처리
+
+서블릿에 너무 많은 코드가 작성되면 가독성이 떨어지므로
+서블릿의 역할을 분담하는 메서드 작성을 위해 새로운 클래스를 생성한다. (UserServiceImpl)
+Interface에 담은 이유??????
+
+먼저 값들을 받아와야 하므로 매개변수로 
+HttpServletRequest request, HttpServletResponse response이
+들어와야 한다.
+
+이후 request.getParameter 메서드를 통해 user_join.jsp에서
+입력되었던 값들을 받아온다.
+
+여기서 입력되었던 값들 중 중복이 발생되서는 안되는 값(id, email...)이 있을 경우
+예외 처리를 해주어야 하는데 중복을 확인하기 위해서는 회원의 정보가 담겨있는
+database가 활용되어야 한다. sql 쿼리문을 java에서 작업해야하므로
+JDBC활용을 위한 DAO, VO 클래스가 새로 만들어져야 한다.
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+6.
+
+DAO의 객체는 여러 개 생성될 필요가 없기 때문에 Singleton 형식으로 설계된다.
+
+sql 쿼리문을 통해 id 중복확인을 하는 메서드를 작성한다.
+쿼리문에서 중복되는 값의 개수를 구하는데 개수가 0이라는 것은
+중복값이 없다는 것으로 0과 1 이상일 떄로 나누어 중복을 확인할 수 있고
+중복확인의 결과를 int로 반환한다.
+
+ 
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ 7.
+ 
+
+ 다시 서블릿의 역할을 분담하기 위한 회원가입 메서드가 있는 UserServiceImpl로 돌아와서
+ 중복값을 확인하는 DAO클래스의 idcheck메서드를 호출하고
+ 1이 리턴되면(중복O) 메시지를 띄우고 다시 로그인하도록
+ 0이 리턴하면 (중복x) UserVO 클래스에 값들을 저장하고
+ DAO클래스의 insert 쿼리가 담긴 메서드를 실행하여 db에 데이터를 저장하여
+ 회원가입을 마친다.
+ 회원가입이 끝난 이후 로그인페이지로 돌아가야는데 여기서는 Redirect가 허용된다
+왜? 페이지에서 다른페이지로 전환이 아닌 컨트롤러 내부에서 다른 요청을 하는 것이기 때문에
+MVC Model 2에 위배되지 않는다.
+ response.sendRedirect("user_login.user");
+ 
+ 
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+8.
+
+이와 비슷한 방식으로 login 역시 진행하면 된다.
+header에서 로그인 페이지 클릭 > 서블릿에서 login 요청 처리> switch문에서 로그인 요청을
+처리할 수 있도록 코드 작성
+이번에도 서블릿의 역할 분담을 위해 UserServiceImpl 클래스에서 login 메서드 작성
+> id, pw를 사용자로부터 입력받은 후 입력받은 값이 db에 저장된 값과 동일한지 확인
+> DAO 클래스에서 id, pw 가 같은 데이터 있는지 확인하는 쿼리 실행
+> 동일한 id,pw 있을 경우 해당 데이터 값을 담은 VO 객체 반환, 없을 경우 null 반환
+
+로그인 성공 시 이름과 아이디로 환영 문구 작성하기 위해 아이디, 이름을 session에 담고
+mypage로 이동해야하므로 역시 서블릿에게 요청
+서블릿에서 mypage 요청 들어올 경우 mypage.jsp로 이동시킴

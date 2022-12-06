@@ -32,7 +32,7 @@ public class TestController extends HttpServlet {
 		//이렇게만 하면 basic파일의 href 부분의 이름이 바뀌어도 들어감
 		//경로를 일관성있게 통일해주는게 좋음
 		
-		//System.out.println( request.getContextPath() ); //ContextPath()하면 JSPBasic 출력
+		System.out.println( request.getContextPath() ); //ContextPath()하면 JSPBasic 출력
 		String path = request.getContextPath();
 		//문자열 자르기
 		String command = request.getRequestURI().substring( path.length() );
