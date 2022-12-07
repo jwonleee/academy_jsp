@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 
 <%@ include file ="../include/header.jsp" %>
 
@@ -8,43 +9,44 @@
 
 	<h3>게시글 내용 보기</h3>
 	<hr>
-	<table border="1" width="500">
+	<table border="1" width="600">
 		<tr>
 			<td width="20%">글번호</td>
-			<td width="30%"></td>
+			<td width="30%">${vo.bno }</td>
 			
 			<td width="20%">조회수</td>
-			<td width="30%"></td>
+			<td width="30%">${vo.hit }</td>
 		</tr>
 		<tr>
 			<td>작성자</td>
-			<td></td>
+			<td>${vo.writer }</td>
 			
 			<td>작성일</td>
-			<td ></td>
+			<td ><fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd HH시mm분"/></td>
 		</tr>
 		
 		<tr>
 			<td width="20%">글제목</td>
-			<td colspan="3"></td>
+			<td colspan="3">${vo.title }</td>
 		</tr>
 		<tr>
 			<td width="20%">글내용</td>
-			<td colspan="3" height="120px"></td>
+			<td colspan="3" height="120px">${vo.content }</td>
 		</tr>
 		
 		<tr>
 			<td colspan="4" align="center">
-				<input type="button" value="목록">&nbsp;&nbsp;
-				<input type="button" value="수정">&nbsp;&nbsp;
-				<input type="button" value="삭제">&nbsp;&nbsp;
+				<input type="button" value="목록" onclick="location.href='board_list.board' ">&nbsp;&nbsp;
+				
+				<!-- 로그인 되어 있어야 글 수정시 수정, 삭제 버튼이 보임 -->
+				<c:if test="${sessionScope.user_id != null }">
+				<input type="button" value="수정" onclick="location.href='board_modify.board?bno=${vo.bno}&writer=${vo.writer }' ">&nbsp;&nbsp;
+				<input type="button" value="삭제" onclick="location.href='board_delete.board?bno=${vo.bno}&writer=${vo.writer }' ">&nbsp;&nbsp;
+				</c:if>
+				
 			</td>
 		</tr>
 	</table>
-	
-	
-	
-
 	
 
 </div>

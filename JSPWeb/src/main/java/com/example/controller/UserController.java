@@ -42,6 +42,7 @@ public class UserController extends HttpServlet {
 		UserService service = new UserServiceImpl();
 		HttpSession session = null;
 		
+		//요청분기
 		switch (command) {
 		case "/user/user_join.user":
 			

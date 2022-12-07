@@ -5,7 +5,7 @@
  
     <div class="container">
 
-		<div clㅇass="row ">
+		<div class="row ">
         	
         	       
             <div class="box">

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>    
 <%@ include file ="../include/header.jsp" %>
 	
 
@@ -10,6 +11,7 @@
 		<table class="table table-bordered">
 			<thead>
 				<tr>
+					<th>순서</th>
 					<th>글 번호</th>
 					<th>작성자</th>
 					<th>제목</th>
@@ -19,18 +21,26 @@
 			</thead>
 
 			<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+				<!-- 향상된 for문 회전할 때 var=변수명 아무거나, item에 list담아줌 -->
+				<c:forEach var="vo" items="${list}" varStatus="num"> 
+				
+				<tr> <!-- tr을 반복하면 행이 하나씩 생김 -->
+					<td>${num.count }</td>
+					<td>${vo.bno }</td>
+					<td>${vo.writer }</td>
+					<td>
+						<a href = "board_content.board?bno=${vo.bno}">${vo.title }</a>
+					</td>
+					<td><fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd HH시mm분ss초"/></td>
+					<td>${vo.hit }</td>
 				</tr>
+				
+				</c:forEach>
 			</tbody>
 			
 			<tbody>
 				<tr>
-					<td colspan="5" align="right">
+					<td colspan="6" align="right">
 						<form action="" class="form-inline" >
 						  <div class="form-group">
 						    <input type="text" name="search" placeholder="제목검색" class="form-control" >
